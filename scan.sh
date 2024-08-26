@@ -1,5 +1,6 @@
 cwd=${1:-./}
 depth=3
+
 scan_dir() {
 	local cwd=$1 dir dirs table
 	test -n $cwd && cd $cwd

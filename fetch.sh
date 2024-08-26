@@ -91,20 +91,7 @@ git_remote_get_url() {
 }
 
 
-# git_fetch <repo>...
-git_fetch() {
-	for repo in "$@"; do
-        git_check $repo || continue
-		cd "$repo" || continue
-		#
-		origin=$(git remote | head -n 1)
-        test -n "$origin" || { echo -e "\e[33mThe $repo doesn't have remote!\e[0m"; cd - >/dev/null; continue; }
-        echo -e "\e[32mFetch from $origin in $repo ...\e[0m"
-		git fetch $origin *:*
-		#
-		cd - >/dev/null
-	done
-}
+
 
 repos=$(scan_git $cwd)
 repo_cnt=$(echo $repos | wc -w)
