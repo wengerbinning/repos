@@ -1,0 +1,59 @@
+#
+# cgit config
+#
+
+css=/cgit.css
+logo=/cgit.png
+
+# Following lines work with the above Apache config
+#css=/cgit-css/cgit.css
+#logo=/cgit-css/cgit.png
+
+# Following lines work with the above Lighttpd config
+#css=/cgit/cgit.css
+#logo=/cgit/cgit.png
+
+# Allow http transport git clone
+snapshots=tar.gz tar.bz2 zip 
+cache-size=0
+enable-http-clone=1
+clone-url=http://$SERVER_ADDR/$CGIT_REPO_URL
+
+section-sort=0
+section-from-path=1
+# if you do not want that webcrawler (like google) index your site
+robots=noindex, nofollow
+
+# if cgit messes up links, use a virtual-root. For example, cgit.example.org/ has this value:
+virtual-root=/
+
+
+
+
+
+readme=:README
+readme=:readme
+readme=:README.md
+readme=:readme.txt
+
+
+#
+# Project
+#
+
+project-list=/etc/cgitrc.d/project-list
+scan-path=/vcs/git
+
+# mirrors/linux
+#section=mirrors/linux
+#include=/etc/cgitrc.d/mirrors-linux
+
+# mirrors/openwrt
+#section=mirrors/openwrt
+#include=/etc/cgitrc.d/mirrors-openwrt
+
+# mirrors/immortalwrt
+#section=mirrors/immortalwrt
+#include=/etc/cgitrc.d/mirrors-immortalwrt
+
+cgi = git
